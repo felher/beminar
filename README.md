@@ -172,7 +172,7 @@ We follow semantic versioning, i.e. semver 2.0. Keeping binary (and to a somewha
 When we need to break binary compatibility for a reason other than to keep up with Laminar, we will consider changing the namespace of the library in the process.
 
 ### Laminar Compatibility
-Beminar doesn't list Laminar as normal dependency, but as "provided", so that you can use it with any version of Laminar you want. For example, Beminar 1.0.0 works with Laminar 15, 16 and 17. Chances are that when Laminar updates to 18, this library will just work without any changes and will not need a newer version of this library.
+Beminar doesn't list Laminar as normal dependency, but as "provided", so that you can use it with any version of Laminar you want. For example, Beminar 1.0.0 works with Laminar 15, 16 and 17. Chances are that when Laminar updates to 18, this library will just work without any changes and will not need a new release.
 
 We generate a compatibility matrix for all releases, which lists the Laminar versions as well as the Scala versions the library is binary compatible with. Here it is:
 
