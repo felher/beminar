@@ -73,7 +73,7 @@ lazy val root = project
     libraryDependencies ++= Seq(
       "org.scala-js" %%% "scalajs-dom" % "2.4.0",
       "com.raquo"    %%% "laminar"     % "17.0.0" % Provided,
-      "com.lihaoyi"  %%% "utest"       % "0.8.2"  % Test
+      "com.lihaoyi"  %%% "utest"       % "0.8.3"  % Test
     ),
     jsEnv                  := new org.scalajs.jsenv.jsdomnodejs.JSDOMNodeJSEnv(),
     testFrameworks += new TestFramework("utest.runner.Framework")
@@ -87,7 +87,7 @@ lazy val testMatrix = project
       "com.raquo"   %%% "laminar" % "17.0.0",
       "org.felher"  %%% "beminar" % "1.0.0",
       "org.felher"  %%% "beminar" % "1.0.0" % Test classifier "tests",
-      "com.lihaoyi" %%% "utest"   % "0.8.2" % Test
+      "com.lihaoyi" %%% "utest"   % "0.8.3" % Test
     ),
     jsEnv := new org.scalajs.jsenv.jsdomnodejs.JSDOMNodeJSEnv(),
     testFrameworks += new TestFramework("utest.runner.Framework"),
