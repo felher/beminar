@@ -71,7 +71,7 @@ lazy val root = project
         )
     }),
     libraryDependencies ++= Seq(
-      "org.scala-js" %%% "scalajs-dom" % "2.4.0",
+      "org.scala-js" %%% "scalajs-dom" % "2.8.0",
       "com.raquo"    %%% "laminar"     % "17.0.0" % Provided,
       "com.lihaoyi"  %%% "utest"       % "0.8.2"  % Test
     ),
