@@ -98,7 +98,7 @@ lazy val testMatrix = project
           beminarVersion: String
       )
 
-      val laminarVersions = List("0.14.5", "15.0.1", "16.0.0", "17.0.0")
+      val laminarVersions = List("0.14.5", "15.0.1", "16.0.0", "17.0.0", "17.1.0")
       val beminarVersions = List("0.16.0", "1.0.0")
       val scalaVersions   = supportedScalaVersions
       val allTestKeys     = for {
