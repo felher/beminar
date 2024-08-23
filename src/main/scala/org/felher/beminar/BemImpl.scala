@@ -7,9 +7,9 @@ import com.raquo.laminar.nodes.ReactiveHtmlElement
 import com.raquo.laminar.nodes.ReactiveSvgElement
 
 private[beminar] class BemImpl(fragments: Seq[BemFragment], config: BemConfig) extends Bem {
-  override def apply(magnets: BemFragment*): BemImpl         = new BemImpl(fragments ++ magnets, config)
-  override def withConfig(config: BemConfig): BemImpl        = new BemImpl(fragments, config)
-  override def getConfig: BemConfig                          = config
+  override def apply(magnets: BemFragment*): BemImpl            = new BemImpl(fragments ++ magnets, config)
+  override def withConfig(config: BemConfig): BemImpl           = new BemImpl(fragments, config)
+  override def getConfig: BemConfig                             = config
   override def modifyConfig(f: BemConfig => BemConfig): BemImpl = new BemImpl(fragments, f(config))
 
   private def fullClassName: Signal[String] = {
