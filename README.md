@@ -31,6 +31,10 @@ libraryDependencies += "org.felher" %%% "beminar" % "1.0.0"
 ```
 to your `build.sbt` file.
 
+## Scaladocs
+
+[here](https://www.javadoc.io/doc/org.felher/beminar_sjs1_3/latest/index.html)
+
 ## Usage
 
 ### Small example
@@ -89,7 +93,7 @@ You can decide how you want your classes to be generated. For example, you can c
 
 You can also use the fact that `Bem` is designed for cascading uses of `apply` to do something like `val defaultBem = Bem().modifyConfig(... your config here)` and then use your `defaultBem` everywhere. For example `val bem = defaultBem("/button")` in a button component.
 
-Take a look at the scaladocs for `Bem` and `BemConfig` to find more options.
+Take a look at the [scaladocs](https://www.javadoc.io/doc/org.felher/beminar_sjs1_3/latest/index.html) for `Bem` and `BemConfig` to find more options.
 
 ### More stuff
 There is more stuff to find, like how BEM elements may inherit modifiers from their parent. Go ahead and browse the scaladocs. They are fairly comprehensive but still easy to wrap your head around.
