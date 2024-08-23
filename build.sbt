@@ -1,4 +1,4 @@
-lazy val supportedScalaVersions = List("2.13.13", "3.3.3")
+lazy val supportedScalaVersions = List("2.13.14", "3.3.3")
 
 ThisBuild / organization         := "org.felher"
 ThisBuild / organizationName     := "Felix Herrmann"
@@ -71,9 +71,9 @@ lazy val root = project
         )
     }),
     libraryDependencies ++= Seq(
-      "org.scala-js" %%% "scalajs-dom" % "2.4.0",
+      "org.scala-js" %%% "scalajs-dom" % "2.8.0",
       "com.raquo"    %%% "laminar"     % "17.1.0" % Provided,
-      "com.lihaoyi"  %%% "utest"       % "0.8.2"  % Test
+      "com.lihaoyi"  %%% "utest"       % "0.8.4"  % Test
     ),
     jsEnv                  := new org.scalajs.jsenv.jsdomnodejs.JSDOMNodeJSEnv(),
     testFrameworks += new TestFramework("utest.runner.Framework")
@@ -87,7 +87,7 @@ lazy val testMatrix = project
       "com.raquo"   %%% "laminar" % "17.1.0",
       "org.felher"  %%% "beminar" % "1.0.0",
       "org.felher"  %%% "beminar" % "1.0.0" % Test classifier "tests",
-      "com.lihaoyi" %%% "utest"   % "0.8.2" % Test
+      "com.lihaoyi" %%% "utest"   % "0.8.4" % Test
     ),
     jsEnv := new org.scalajs.jsenv.jsdomnodejs.JSDOMNodeJSEnv(),
     testFrameworks += new TestFramework("utest.runner.Framework"),
