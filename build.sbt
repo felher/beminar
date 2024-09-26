@@ -1,4 +1,4 @@
-lazy val supportedScalaVersions = List("2.13.14", "3.3.3")
+lazy val supportedScalaVersions = List("2.13.15", "3.3.3")
 
 ThisBuild / organization         := "org.felher"
 ThisBuild / organizationName     := "Felix Herrmann"
