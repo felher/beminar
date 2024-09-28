@@ -1,4 +1,4 @@
-lazy val supportedScalaVersions = List("2.13.14", "3.3.3")
+lazy val supportedScalaVersions = List("2.13.14", "3.3.4")
 
 ThisBuild / organization         := "org.felher"
 ThisBuild / organizationName     := "Felix Herrmann"
@@ -120,7 +120,7 @@ lazy val testMatrix = project
 
       val results = allTestKeys.foldLeft(Map.empty[CompatTestKey, Boolean])((results, testKey) => {
         // this code is tricky. The scalajs plugin changes the dependency list depending on the scala version.
-        // So just adding `scalaVersion := "3.3.3"` to the `newSettings`
+        // So just adding `scalaVersion := "3.3.4"` to the `newSettings`
         // list doesn't work, because the old dependency list is out of date.
         //
         // Instead of adding a setting, we set the new scala using the `set` command, which seems
