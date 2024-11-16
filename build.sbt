@@ -2,7 +2,7 @@ lazy val supportedScalaVersions = List("2.13.15", "3.3.4")
 
 ThisBuild / organization         := "org.felher"
 ThisBuild / organizationName     := "Felix Herrmann"
-ThisBuild / version              := "1.0.0"
+ThisBuild / version              := "1.1.0"
 ThisBuild / organizationHomepage := Some(url("https://felher.org"))
 ThisBuild / scalaVersion         := supportedScalaVersions.head
 
@@ -40,7 +40,6 @@ lazy val root = project
     scalacOptions ++= (CrossVersion.partialVersion(scalaVersion.value) match {
       case Some((3, _)) =>
         Seq(
-          "-language:strictEquality",
           "-feature",
           "-deprecation",
           "-Ykind-projector:underscores",
@@ -48,7 +47,8 @@ lazy val root = project
           "-Xmax-inlines:256",
           "-Wunused:all",
           "-Wvalue-discard",
-          "-Wconf:any:verbose"
+          "-Wconf:any:verbose",
+          "-language:implicitConversions"
         )
       case _            =>
         Seq(
@@ -99,7 +99,7 @@ lazy val testMatrix = project
       )
 
       val laminarVersions = List("0.14.5", "15.0.1", "16.0.0", "17.0.0", "17.1.0")
-      val beminarVersions = List("0.16.0", "1.0.0")
+      val beminarVersions = List("0.16.0", "1.0.0", "1.1.0")
       val scalaVersions   = supportedScalaVersions
       val allTestKeys     = for {
         scalaVersion   <- scalaVersions

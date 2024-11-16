@@ -33,17 +33,22 @@ trait BemConfig {
   def parentKeepsModifiers: Boolean = false
 
   /** Whether a child element should inherit the modifiers from its parent block/element.
-      * For example, the code
-      * {{{
-      * val block = Bem("/user-list", "empty" -> true)
-      * div(block, "/item")
-      * }}}
-      * would output the classes <code>user-list__item</code> when <code>childInheritsModifiers</code> is <code>false</code>
-      * and <code>user-list__item--empty</code> (together with <code>user-list__item</code>) when <code>childInheritsModifiers</code> is <code>true</code>.
-      *
-      * Since this allows you to group modifiers for block and elements together, the default is <code>true</code>.
-      */
+    * For example, the code
+    * {{{
+    * val block = Bem("/user-list", "empty" -> true)
+    * div(block, "/item")
+    * }}}
+    * would output the classes <code>user-list__item</code> when <code>childInheritsModifiers</code> is <code>false</code>
+    * and <code>user-list__item--empty</code> (together with <code>user-list__item</code>) when <code>childInheritsModifiers</code> is <code>true</code>.
+    *
+    * Since this allows you to group modifiers for block and elements together, the default is <code>true</code>.
+    */
   def childInheritsModifiers: Boolean = true
+
+  /** How the name of a val/def, when using the scala 3 extensions, should be transformed into css class fragments.
+    * Take a look at  [[org.felher.beminar.BemValRenameStrategy]] for more information.
+    */
+  def valRenameStrategy: BemValRenameStrategy = BemValRenameStrategy.kebab
 
   def withElementSeparator(elementSeparator: String): BemConfig = {
     val _elementSeparator = elementSeparator
@@ -53,6 +58,7 @@ trait BemConfig {
       override def modifierValueSeparator = BemConfig.this.modifierValueSeparator
       override def parentKeepsModifiers   = BemConfig.this.parentKeepsModifiers
       override def childInheritsModifiers = BemConfig.this.childInheritsModifiers
+      override def valRenameStrategy      = BemConfig.this.valRenameStrategy
     }
   }
 
@@ -64,6 +70,7 @@ trait BemConfig {
       override def modifierValueSeparator = BemConfig.this.modifierValueSeparator
       override def parentKeepsModifiers   = BemConfig.this.parentKeepsModifiers
       override def childInheritsModifiers = BemConfig.this.childInheritsModifiers
+      override def valRenameStrategy      = BemConfig.this.valRenameStrategy
     }
   }
 
@@ -75,6 +82,7 @@ trait BemConfig {
       override def modifierValueSeparator = _modifierValueSeparator
       override def parentKeepsModifiers   = BemConfig.this.parentKeepsModifiers
       override def childInheritsModifiers = BemConfig.this.childInheritsModifiers
+      override def valRenameStrategy      = BemConfig.this.valRenameStrategy
     }
   }
 
@@ -86,6 +94,7 @@ trait BemConfig {
       override def modifierValueSeparator = BemConfig.this.modifierValueSeparator
       override def parentKeepsModifiers   = _parentKeepsModifiers
       override def childInheritsModifiers = BemConfig.this.childInheritsModifiers
+      override def valRenameStrategy      = BemConfig.this.valRenameStrategy
     }
   }
 
@@ -97,6 +106,19 @@ trait BemConfig {
       override def modifierValueSeparator = BemConfig.this.modifierValueSeparator
       override def parentKeepsModifiers   = BemConfig.this.parentKeepsModifiers
       override def childInheritsModifiers = _childInheritsModifiers
+      override def valRenameStrategy      = BemConfig.this.valRenameStrategy
+    }
+  }
+
+  def withValRenameStrategy(valRenameStrategy: BemValRenameStrategy): BemConfig = {
+    val _valRenameStrategy = valRenameStrategy
+    new BemConfig {
+      override def elementSeparator       = BemConfig.this.elementSeparator
+      override def modifierSeparator      = BemConfig.this.modifierSeparator
+      override def modifierValueSeparator = BemConfig.this.modifierValueSeparator
+      override def parentKeepsModifiers   = BemConfig.this.parentKeepsModifiers
+      override def childInheritsModifiers = BemConfig.this.childInheritsModifiers
+      override def valRenameStrategy      = _valRenameStrategy
     }
   }
 }

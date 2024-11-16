@@ -32,6 +32,10 @@ object BemSpec extends TestSuite {
     test("implicit framgent string tuple S")  - checkMultiSep("block block--modifier_value", "/block", "modifier" -> Signal.fromValue("value"))
     test("implicit framgent string tuple SS") - checkMultiSep("block block--modifier_value", "/block", Signal.fromValue("modifier" -> "value"))
 
+    test("implicit framgent int tuple ")   - checkMultiSep("block block--level_1", "/block", "level" -> 1)
+    test("implicit framgent int tuple S")  - checkMultiSep("block block--level_1", "/block", "level" -> Signal.fromValue(1))
+    test("implicit framgent int tuple SS") - checkMultiSep("block block--level_1", "/block", Signal.fromValue("level" -> 1))
+
     test("implicit framgent string map ")   - checkMultiSep("block block--m1_v1 block--m2_v2", "/block", Map("m1" -> "v1", "m2" -> "v2"))
     test("implicit framgent string map S")  - checkMultiSep("block block--m1_v1 block--m2_v2", "/block", Map("m1" -> Signal.fromValue("v1"), "m2" -> Signal.fromValue("v2")))
     test("implicit framgent string map SS") - checkMultiSep("block block--m1_v1 block--m2_v2", "/block", Signal.fromValue(Map("m1" -> "v1", "m2" -> "v2")))
@@ -39,6 +43,10 @@ object BemSpec extends TestSuite {
     test("implicit framgent boolean map ")   - checkMultiSep("block block--m1 block--m3", "/block", Map("m1" -> true, "m2" -> false, "m3" -> true))
     test("implicit framgent boolean map S")  - checkMultiSep("block block--m1 block--m3", "/block", Map("m1" -> Signal.fromValue(true), "m2" -> Signal.fromValue(false), "m3" -> Signal.fromValue(true)))
     test("implicit framgent boolean map SS") - checkMultiSep("block block--m1 block--m3", "/block", Signal.fromValue(Map("m1" -> true, "m2" -> false, "m3" -> true)))
+
+    test("implicit framgent int map ")   - checkMultiSep("block block--m1_1 block--m2_2", "/block", Map("m1" -> 1, "m2" -> 2))
+    test("implicit framgent int map S")  - checkMultiSep("block block--m1_1 block--m2_2", "/block", Map("m1" -> Signal.fromValue(1), "m2" -> Signal.fromValue(2)))
+    test("implicit framgent int map SS") - checkMultiSep("block block--m1_1 block--m2_2", "/block", Signal.fromValue(Map("m1" -> 1, "m2" -> 2)))
 
     test("you should be able to add modfiers multiple times 1") - checkSingleBem("",                                                 Bem())
     test("you should be able to add modfiers multiple times 2") - checkSingleBem("b",                                                Bem()("/b"))
@@ -65,6 +73,10 @@ object BemSpec extends TestSuite {
     test("do-keep do-inherit complex") - checkSingleBem(complexExpected(3), complex.modifyConfig(_.withParentKeepsModifiers(true).withChildInheritsModifiers(true)))
 
     test("should also work with vars, not only signals") - checkMultiSep("block block--m1 block--m3", "/block", Var(Map("m1" -> true, "m2" -> false, "m3" -> true)))
+
+    test("macro expansion name rewrite - keep as is") - checkWithConfig(BemConfig.default.withValRenameStrategy(BemValRenameStrategy.asIs),  "block block--isEmpty",  "/block", new BemFragment.BemFragmentMacro(new BemFragment.BemFragmentBooleanMod("isEmpty", true)))
+    test("macro expansion name rewrite - to kebab")   - checkWithConfig(BemConfig.default.withValRenameStrategy(BemValRenameStrategy.kebab), "block block--is-empty", "/block", new BemFragment.BemFragmentMacro(new BemFragment.BemFragmentBooleanMod("isEmpty", true)))
+    test("macro expansion name rewrite - to snake")   - checkWithConfig(BemConfig.default.withValRenameStrategy(BemValRenameStrategy.snake), "block block--is_empty", "/block", new BemFragment.BemFragmentMacro(new BemFragment.BemFragmentBooleanMod("isEmpty", true)))
 
     //@formatter:on
   }

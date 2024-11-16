@@ -180,12 +180,13 @@ Beminar doesn't list Laminar as normal dependency, but as "provided", so that yo
 
 We generate a compatibility matrix for all releases, which lists the Laminar versions as well as the Scala versions the library is binary compatible with. Here it is:
 
-||Beminar 0.16.0|Beminar 1.0.0|
-|-|-|-|
-| Laminar 15.0.1 | scala 2.13, 3.3|scala 2.13, 3.3 |
-| Laminar 16.0.0 | scala 2.13, 3.3|scala 2.13, 3.3 |
-| Laminar 17.0.0 | scala 2.13, 3.3|scala 2.13, 3.3 |
-| Laminar 17.1.0 | scala 2.13, 3.3|scala 2.13, 3.3 |
+||Beminar 0.16.0|Beminar 1.0.0|Beminar 1.1.0|
+|-|-|-|-|
+| Laminar 0.14.5 | ❌|❌|❌ |
+| Laminar 15.0.1 | scala 2.13, 3.3|scala 2.13, 3.3|scala 2.13, 3.3 |
+| Laminar 16.0.0 | scala 2.13, 3.3|scala 2.13, 3.3|scala 2.13, 3.3 |
+| Laminar 17.0.0 | scala 2.13, 3.3|scala 2.13, 3.3|scala 2.13, 3.3 |
+| Laminar 17.1.0 | scala 2.13, 3.3|scala 2.13, 3.3|scala 2.13, 3.3 |
 
 ### Output Compatibility
 We also take output compatibility very seriously. Unless something is clearly a bug, new versions of this library should not change what classes are generated for your components, otherwise your CSS will break.

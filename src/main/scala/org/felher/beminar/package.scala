@@ -77,4 +77,4 @@ package org.felher
   *
   * If we have more than 9 clicks, the `wow` modifier is added to the <code>.counter__count</code> element and it turns red.
   */
-package object beminar {}
+package object beminar extends beminar.BeminarPackagePlatformSpecific {}
