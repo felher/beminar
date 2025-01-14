@@ -1,3 +1,3 @@
 package org.felher.beminar
 
-private [beminar] trait BeminarPackagePlatformSpecific {}
+private[beminar] trait BeminarPackagePlatformSpecific {}
