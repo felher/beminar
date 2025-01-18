@@ -57,12 +57,25 @@ private[beminar] object BemImpl {
             )
           case frag: BemFragmentBooleanMod =>
             pathPartFromFrag(
-              new BemFragmentBooleanMod(BemValRenameStrategy.expandMacroName(frag.name, config.valRenameStrategy), frag.value)
+              new BemFragmentBooleanMod(
+                BemValRenameStrategy.expandMacroName(frag.name, config.valRenameStrategy),
+                frag.value
+              )
             )
           case frag: BemFragmentStringMod  =>
-            pathPartFromFrag(new BemFragmentStringMod(BemValRenameStrategy.expandMacroName(frag.name, config.valRenameStrategy), frag.value))
+            pathPartFromFrag(
+              new BemFragmentStringMod(
+                BemValRenameStrategy.expandMacroName(frag.name, config.valRenameStrategy),
+                frag.value
+              )
+            )
           case frag: BemFragmentIntMod     =>
-            pathPartFromFrag(new BemFragmentIntMod(BemValRenameStrategy.expandMacroName(frag.name, config.valRenameStrategy), frag.value))
+            pathPartFromFrag(
+              new BemFragmentIntMod(
+                BemValRenameStrategy.expandMacroName(frag.name, config.valRenameStrategy),
+                frag.value
+              )
+            )
           case frag: BemFragmentMacro      => pathPartFromFrag(frag)
         }
 
